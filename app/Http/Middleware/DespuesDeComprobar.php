@@ -1,19 +1,20 @@
 <?php
- 
+
 namespace App\Http\Middleware;
- 
+
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controllers\Middleware;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; 
 use Illuminate\Support\Facades\Log;
- 
-class DespuesDeComprobar 
+
+class DespuesDeComprobar
 {
     public function handle(Request $request, Closure $next): Response
     {
-        Log::info("Despues de comprobar");
- 
-        return $next($request);
+        $response = $next($request);
+
+        Log::info("Después de comprobar"); 
+
+        return $response;
     }
 }
